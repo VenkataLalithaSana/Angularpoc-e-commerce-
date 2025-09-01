@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { HttpClient, provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { HomeComponent } from './components/home/home.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { ProductsComponent } from './components/products/products.component';
@@ -22,34 +22,27 @@ import { OrderSuccessComponent } from './components/order-success/order-success.
 import { AddProductComponent } from './add-product/add-product.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 
-@NgModule({
-  declarations: [
-    AppComponent,
-    HomeComponent,
-    NavbarComponent,
-    ProductsComponent,
-    ProductDetailComponent,
-    CartComponent,
-    SigninComponent,
-    SignupComponent,
-    SearchComponent,
-    EditProfileComponent,
-    SavedAddressComponent,
-    SelectlanguageComponent,
-    TermsComponent,
-    CheckoutComponent,
-    OrderSuccessComponent,
-    AddProductComponent,
-    ForgotPasswordComponent,
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    HttpClientModule,
-    FormsModule,
-    ReactiveFormsModule
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
-})
+@NgModule({ declarations: [
+        AppComponent,
+        HomeComponent,
+        NavbarComponent,
+        ProductsComponent,
+        ProductDetailComponent,
+        CartComponent,
+        SigninComponent,
+        SignupComponent,
+        SearchComponent,
+        EditProfileComponent,
+        SavedAddressComponent,
+        SelectlanguageComponent,
+        TermsComponent,
+        CheckoutComponent,
+        OrderSuccessComponent,
+        AddProductComponent,
+        ForgotPasswordComponent,
+    ],
+    bootstrap: [AppComponent], imports: [BrowserModule,
+        AppRoutingModule,
+        FormsModule,
+        ReactiveFormsModule], providers: [provideHttpClient(withInterceptorsFromDi())] })
 export class AppModule { }
