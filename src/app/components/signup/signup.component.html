@@ -1,0 +1,92 @@
+<div class="auth-container">
+  <h2 class="text-center">Create Your Account</h2>
+
+  <form (ngSubmit)="onSignUp()" #signUpForm="ngForm" novalidate>
+    <!-- Error message -->
+    <div *ngIf="error" class="alert alert-danger">{{ error }}</div>
+
+    <!-- Name -->
+    <div class="mb-3">
+      <label for="name" class="form-label">Full Name</label>
+      <input
+        [(ngModel)]="name"
+        name="name"
+        id="name"
+        class="form-control"
+        required
+        #nameInput="ngModel"
+      />
+      <div *ngIf="nameInput.invalid && nameInput.touched" class="text-danger mt-1">
+        Full Name is required.
+      </div>
+    </div>
+
+    <!-- Email -->
+    <div class="mb-3">
+      <label for="email" class="form-label">Email Address</label>
+      <input
+        [(ngModel)]="email"
+        name="email"
+        type="email"
+        id="email"
+        class="form-control"
+        required
+        email
+        #emailInput="ngModel"
+      />
+      <div *ngIf="emailInput.invalid && emailInput.touched" class="text-danger mt-1">
+        Enter a valid email address.
+      </div>
+    </div>
+
+    <!-- Password -->
+    <div class="mb-3">
+      <label for="password" class="form-label">Password</label>
+      <input
+        [(ngModel)]="password"
+        name="password"
+        type="password"
+        id="password"
+        class="form-control"
+        required
+        minlength="6"
+        #passwordInput="ngModel"
+      />
+      <div *ngIf="passwordInput.invalid && passwordInput.touched" class="text-danger mt-1">
+        Password must be at least 6 characters long.
+      </div>
+    </div>
+
+    <!-- Confirm Password -->
+    <div class="mb-3">
+      <label for="confirmpassword" class="form-label">Confirm Password</label>
+      <input
+        [(ngModel)]="confirmpassword"
+        name="confirmpassword"
+        type="password"
+        id="confirmpassword"
+        class="form-control"
+        required
+        #confirmPasswordInput="ngModel"
+      />
+      <div *ngIf="confirmpassword !== password && confirmPasswordInput.touched" class="text-danger mt-1">
+        Passwords do not match.
+      </div>
+    </div>
+
+    <!-- Submit button -->
+    <button
+      type="submit"
+      class="btn btn-success w-100"
+      [disabled]="
+        signUpForm.invalid || password !== confirmpassword
+      "
+    >
+      Sign Up
+    </button>
+  </form>
+
+  <p class="text-center mt-3">
+    Already have an account? <a routerLink="/signin">Sign In</a>
+  </p>
+</div>

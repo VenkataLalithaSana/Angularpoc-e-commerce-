@@ -1,0 +1,57 @@
+<nav class="navbar navbar-expand-lg navbar-danger bg-white">
+  <div class="container-fluid">
+    <a class="navbar-brand" routerLink="/home">ShopNow</a>
+    <div class="collapse navbar-collapse d-flex">
+      <ul class="navbar-nav me-auto">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/products">Products</a>
+        </li>
+        <li class="nav-item">
+          <a routerLink="/cart" class="nav-link">
+            🛒 Cart <span class="badge bg-danger">{{ cartCount }}</span>
+          </a>
+        </li>
+        <li>
+          <div *ngIf="loggedInUser === 'Admin'">
+            <a  routerLink="/addProducts" class="btn btn-primary btn-lg">Add Product</a>
+          </div>
+        </li>
+      </ul>
+
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item dropdown">
+          <a
+  class="nav-link dropdown-toggle d-flex align-items-center"
+  href="#"
+  role="button"
+  data-bs-toggle="dropdown"
+  aria-expanded="false"
+>
+  <i class="bi bi-person-circle fs-4"></i>
+  <span class="ms-2 d-none d-lg-inline text-white fw-semibold">
+    {{ username || 'Account' }}
+  </span>
+</a>
+
+<ul class="dropdown-menu dropdown-menu-end">
+  <!-- If NOT Admin, show full menu -->
+  <ng-container *ngIf="loggedInUser !== 'Admin'; else adminOnly">
+    <li><a class="dropdown-item" routerLink="/account/profile">👤 Edit Profile</a></li>
+    <li><a class="dropdown-item" routerLink="/account/address">🏠 Address</a></li>
+    <li><hr class="dropdown-divider"></li>
+    <li><a class="dropdown-item" routerLink="/account/terms">📄 Terms & Conditions</a></li>
+    <li><hr class="dropdown-divider"></li>
+  </ng-container>
+
+  <!-- Common Logout button for all users -->
+  <ng-template #adminOnly></ng-template>
+  <li>
+    <button class="dropdown-item text-danger" (click)="onLogout()">🚪 Logout</button>
+  </li>
+</ul>
+
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

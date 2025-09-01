@@ -1,0 +1,22 @@
+.search{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* margin-top: 10px; */
+}
+.ekart-search{
+    width: 100%;
+    max-width: 600px;
+}
+.btn{
+    margin-left: 10px;
+}
+.btn-search{
+    background-color: #007bff;
+    color: white;
+}
+/* .result{
+    margin-top: 20px;
+} */
+
+

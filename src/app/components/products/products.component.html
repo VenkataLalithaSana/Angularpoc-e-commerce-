@@ -1,0 +1,36 @@
+<app-navbar></app-navbar> 
+<div class="container mt-4">
+  <div class="row mb-3">
+    <div class="col-md-12 col-lg-12 d-flex justify-content-end">
+      <input type="text" [(ngModel)]="searchQuery" (input)="onSearch()" class="form-control w-auto" placeholder="Search products...">
+    </div>
+  </div>
+    <div class="row">
+      <div *ngFor="let product of filteredProducts" class="col-md-4 mb-4">
+        <div class="card h-100 shadow-sm">
+          <img [src]="product.image" class="card-img-top w-50 mx-auto border-0" alt="{{ product.name }}">
+          <div class="card-body text-center">
+            <h5 class="card-title">{{ product.name }}</h5>
+            <p class="card-text">${{ product.price }}</p>
+            <div class="rating mb-2">
+              <!-- <h6>rating</h6> -->
+              <ng-container *ngFor="let star of [1, 2, 3, 4, 5]; let i = index">
+                <i 
+                  class="fa fa-star" 
+                  [ngClass]="{
+                    'fa-star': i < product.rating,
+                    'fa-star-o': i >= product.rating
+                  }" 
+                  aria-hidden="true">
+                </i>
+              </ng-container>
+            </div>
+            <a [routerLink]="['/product',product._id]" class="btn btn-outline-primary btn-sm">View Details</a>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
+  
+  
+  

@@ -1,0 +1,57 @@
+/* Navbar color (Flipkart blue theme) */
+.navbar {
+    background-color: #000000 !important;
+  }
+  
+  .navbar .navbar-brand,
+  .navbar .nav-link {
+    color: #fff !important;
+    font-weight: 500;
+  }
+  
+  /* Account dropdown menu */
+  .navbar .dropdown-menu {
+    background-color: #f1f3f6;
+    border-radius: 8px;
+    border: none;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    padding: 10px 0;
+    min-width: 240px;
+  }
+  
+  .navbar .dropdown-item {
+    color: #212529;
+    font-weight: 500;
+    padding: 10px 20px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+  }
+  
+  .navbar .dropdown-item:hover {
+    background-color: #ffe6cc;
+    color: #e65100;
+    transform: translateX(5px);
+  }
+  
+  .navbar .dropdown-divider {
+    margin: 6px 0;
+    border-top: 1px solid #ddd;
+  }
+  
+  /* Logout item in dropdown */
+  .dropdown-item.text-danger {
+    font-weight: bold;
+  }
+  
+  /* Cart badge style */
+  .badge.bg-danger {
+    font-size: 0.75rem;
+    padding: 4px 8px;
+  }
+  
+  /* Responsive tweaks */
+  @media (max-width: 768px) {
+    .navbar .dropdown-menu {
+      min-width: 100%;
+    }
+  }
+  

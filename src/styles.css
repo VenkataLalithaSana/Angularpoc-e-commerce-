@@ -1,0 +1,138 @@
+
+ body {
+    background-color: #f8f9fa;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+  
+  .hero-section {
+    /* background: url('assets/hero-background.jpg') no-repeat center center/cover; */
+    height: 100vh;
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+    /* width: 200px; */
+  }
+  
+  .hero-section h1 {
+    font-size: 4rem;
+    letter-spacing: 2px;
+  }
+  img{
+    width: 300px;
+}
+  
+  .hero-section p {
+    font-size: 1.25rem;
+  }
+  
+  .card {
+      width: 300px; 
+      height: 400px; 
+      border: none;
+      border-radius: 8px;
+      transition: transform 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between; 
+      overflow: hidden; 
+  }
+  
+  .card:hover {
+    transform: scale(1.05);
+  }
+  
+  .card img {
+      width: 100%; 
+      height: 60%; 
+      margin-top: 20px;
+      object-fit: cover; 
+      border-radius: 0 !important;
+  }
+  
+  .card-body {
+      padding: 20px;
+      flex-grow: 1; 
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+  }
+  
+  .card-title {
+    font-size: 1.2rem;
+    font-weight: bold;
+  }
+  
+  .card-text {
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+  }
+  
+  .btn-outline-primary {
+    border-radius: 50px;
+    font-size: 1rem;
+  }
+  .auth-container {
+    max-width: 400px;
+    margin: 60px auto;
+    padding: 30px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  }
+  
+  .auth-container h2 {
+    font-weight: 700;
+    margin-bottom: 20px;
+  }
+  
+  .auth-container .form-label {
+    font-weight: 500;
+  }
+  
+  .auth-container button {
+    font-weight: 600;
+  }
+  
+  .auth-container a {
+    color: #0077f7;
+    text-decoration: none;
+  }
+  
+  .auth-container a:hover {
+    text-decoration: underline;
+  }
+  
+  .product-image,
+  .cart-image {
+    width: 100%;
+    max-height: 300px;
+    object-fit: contain; /* or 'cover' if you want it to fill without whitespace */
+    border-radius: 8px;
+    display: block;
+    margin: 0 auto;
+  }
+  
+  .product-detail,
+  .cart-detail {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  
+  .img1{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+    display: block;
+    margin: 0 auto;
+  }
+.prd-card {
+    height: 700px !important;
+    width: 600px !important;
+    margin-top: 10px !important;
+    margin: auto !important;
+}
+.prd-card:hover {
+  transform: none !important;
+}
+  
+  

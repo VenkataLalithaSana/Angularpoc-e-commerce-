@@ -1,0 +1,12 @@
+<div class="container mt-4">
+    <h3>Select Language</h3>
+    
+    <select 
+      [(ngModel)]="selectedLanguage" 
+      (change)="onLanguageChange()" 
+      class="form-select" 
+      aria-label="Select Language">
+      <option *ngFor="let lang of languages" [value]="lang.code">{{ lang.label }}</option>
+    </select>
+  </div>
+  

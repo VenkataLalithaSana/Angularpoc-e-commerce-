@@ -1,0 +1,23 @@
+.card {
+    background: linear-gradient(145deg, #ffffff, #f8f9fa);
+  }
+  
+  .form-label {
+    font-size: 0.95rem;
+    color: #343a40;
+  }
+  
+  input::placeholder {
+    color: #adb5bd;
+    font-weight: 300;
+  }
+  
+  button.btn-success:hover {
+    background-color: #198754;
+    box-shadow: 0 0 0.5rem rgba(25, 135, 84, 0.5);
+  }
+  .c1{
+    height:500px;
+    width: 500px;
+  }
+  

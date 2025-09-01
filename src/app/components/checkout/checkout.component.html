@@ -1,0 +1,70 @@
+<div class="container mt-5">
+  <button class="btn btn-outline-secondary btn-sm d-inline-flex align-items-center gap-1 rounded-pill px-3 py-2 shadow-sm hover-scale mb-4" (click)="goBack()">
+    ← Back to Cart
+  </button>  
+  <h2 class="gap-4">🧾 Checkout</h2>
+  <form [formGroup]="checkoutForm" (ngSubmit)="submitOrder()">
+    <div class="mb-3">
+      <label for="savedAddress" class="form-label">Choose Saved Address</label>
+      <select id="savedAddress" class="form-select" (change)="onAddressSelect($event)">
+        <option value="">-- Select from your saved addresses --</option>
+        <option *ngFor="let addr of savedAddresses; let i = index" [value]="i">
+          {{ addr.street }}, {{ addr.city }}, {{ addr.state }}
+        </option>
+      </select>
+    </div>
+    <div class="mb-3">
+      <label for="address" class="form-label">Shipping Address</label>
+      <textarea
+        id="address"
+        class="form-control"
+        formControlName="address"
+        rows="3"
+        placeholder="Enter your delivery address"
+        required>
+      </textarea>
+    </div>
+
+    <!-- Cart Items List -->
+    <div class="mt-4">
+      <h5>🛒 Items in Your Order:</h5>
+      <div class="row mb-3 p-3 border rounded bg-light" *ngFor="let item of cartItems">
+        <div class="col-md-2 text-center">
+          <img [src]="item.image" class="img-fluid rounded" style="max-height: 80px;" alt="{{ item.name }}">
+        </div>
+        <div class="col-md-7">
+          <h6 class="mb-1">{{ item.name }}</h6>
+          <p class="mb-0">Quantity: <strong>{{ item.quantity }}</strong></p>
+        </div>
+        <div class="col-md-3 text-end">
+          <p class="mb-0"><strong>${{ item.quantity * item.price }}</strong></p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Total Price -->
+    <div class="mb-3 text-end">
+      <label class="form-label">Total Price:</label>
+      <h4><strong>${{ totalPrice }}</strong></h4>
+    </div>
+
+    <!-- Submit Button -->
+    <div class="text-end">
+      <button
+        type="submit"
+        class="btn btn-primary btn-lg"
+        [disabled]="checkoutForm.invalid || cartItems.length === 0 || paypalRendered">
+        💳 Proceed to PayPal
+      </button>
+    </div>
+    <div class="text-end">
+      <button
+        type="button"
+        class="btn btn-success btn-lg"
+        [disabled]="checkoutForm.invalid || cartItems.length === 0"
+        (click)="placeOrderWithoutPayPal()">
+        🛒 Place Order Without PayPal
+      </button>
+    </div>
+  </form>
+</div>

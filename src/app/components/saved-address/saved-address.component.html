@@ -1,0 +1,129 @@
+<div class="container">
+
+  <button class="btn btn-back" (click)="goBack()">← Back to Home</button>
+
+  <h2 class="page-title">Your Saved Addresses</h2>
+  <p class="subtitle">Manage your delivery locations securely</p>
+
+  <div class="form-map-wrapper d-flex gap-4">
+
+    <!-- <form class="address-form flex-fill" (submit)="saveAddress(); $event.preventDefault()">
+
+      <label for="street">Street</label>
+      <input id="street" type="text" [(ngModel)]="currentAddress.street" name="street" required placeholder="123 Main St" class="form-control" />
+
+      <div class="form-row d-flex gap-3">
+        <div class="form-group flex-fill">
+          <label for="city">City</label>
+          <input id="city" type="text" [(ngModel)]="currentAddress.city" name="city" required placeholder="City" class="form-control" />
+        </div>
+        <div class="form-group flex-fill">
+          <label for="state">State</label>
+          <input id="state" type="text" [(ngModel)]="currentAddress.state" name="state" required placeholder="State" class="form-control" />
+        </div>
+      </div>
+
+      <div class="form-row d-flex gap-3">
+        <div class="form-group flex-fill">
+          <label for="postalCode">Postal Code</label>
+          <input id="postalCode" type="text" [(ngModel)]="currentAddress.postalCode" name="postalCode" placeholder="Postal Code" class="form-control" />
+        </div>
+        <div class="form-group flex-fill">
+          <label for="country">Country</label>
+          <input id="country" type="text" [(ngModel)]="currentAddress.country" name="country" placeholder="Country" class="form-control" />
+        </div>
+      </div>
+
+      <label for="phone">Phone</label>
+      <input id="phone" type="tel" [(ngModel)]="currentAddress.phone" name="phone" placeholder="+1 (555) 123-4567" class="form-control" />
+
+      <div class="actions mt-3 d-flex gap-2">
+        <button type="submit" class="btn btn-primary flex-grow-1">
+          {{ editingIndex !== null ? 'Update Address' : 'Add Address' }}
+        </button>
+        <button type="button" class="btn btn-secondary flex-grow-1" (click)="resetForm()">Clear</button>
+      </div>
+      <div>
+        <button type="button" class="btn btn-outline-info mb-3" (click)="useCurrentLocation()">
+          📍 Use Current Location
+        </button>
+      </div>
+
+    </form> -->
+
+    <form class="address-form flex-fill" (submit)="saveAddress(); $event.preventDefault()">
+
+      <!-- Use Current Location Button -->
+      <button type="button" class="btn btn-outline-info mb-3" (click)="useCurrentLocation()">
+        📍 Use Current Location
+      </button>
+    
+      <label for="street">Street</label>
+      <input id="street" type="text" [(ngModel)]="currentAddress.street" name="street" required placeholder="123 Main St" class="form-control" />
+    
+      <div class="form-row d-flex gap-3">
+        <div class="form-group flex-fill">
+          <label for="city">City</label>
+          <input id="city" type="text" [(ngModel)]="currentAddress.city" name="city" required placeholder="City" class="form-control" />
+        </div>
+        <div class="form-group flex-fill">
+          <label for="state">State</label>
+          <input id="state" type="text" [(ngModel)]="currentAddress.state" name="state" required placeholder="State" class="form-control" />
+        </div>
+      </div>
+    
+      <div class="form-row d-flex gap-3">
+        <div class="form-group flex-fill">
+          <label for="postalCode">Postal Code</label>
+          <input id="postalCode" type="text" [(ngModel)]="currentAddress.postalCode" name="postalCode" placeholder="Postal Code" class="form-control" />
+        </div>
+        <div class="form-group flex-fill">
+          <label for="country">Country</label>
+          <input id="country" type="text" [(ngModel)]="currentAddress.country" name="country" placeholder="Country" class="form-control" />
+        </div>
+      </div>
+    
+      <label for="phone">Phone</label>
+      <input id="phone" type="tel" [(ngModel)]="currentAddress.phone" name="phone" placeholder="+1 (555) 123-4567" class="form-control" />
+    
+      <div class="actions mt-3 d-flex gap-2">
+        <button type="submit" class="btn btn-primary flex-grow-1">
+          {{ editingIndex !== null ? 'Update Address' : 'Add Address' }}
+        </button>
+        <button type="button" class="btn btn-secondary flex-grow-1" (click)="resetForm()">Clear</button>
+      </div>
+    
+    </form>
+    
+    <!-- Map -->
+    <div class="map-container flex-fill position-relative">
+      <div id="map" class="address-map rounded" style="height: 400px;"></div>
+      <small class="map-info d-block mt-2 text-muted text-center">Drag the marker to set the exact location.</small>
+    </div>
+
+  </div>
+
+  <hr />
+
+  <h3>Saved Addresses</h3>
+  <div *ngIf="savedAddresses.length > 0; else noAddresses">
+    <ul class="list-group">
+      <li *ngFor="let addr of savedAddresses; let i = index" class="list-group-item d-flex justify-content-between align-items-center">
+        <div>
+          <strong>Address {{ i + 1 }}</strong><br />
+          {{ addr.street }}, {{ addr.city }}, {{ addr.state }} - {{ addr.postalCode }}<br />
+          {{ addr.country }}<br />
+          📞 {{ addr.phone }}
+        </div>
+        <div>
+          <button class="btn btn-sm btn-outline-primary me-2" (click)="editAddress(i)">Edit</button>
+          <button class="btn btn-sm btn-outline-danger" (click)="deleteAddress(i)">Delete</button>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <ng-template #noAddresses>
+    <p>No saved addresses yet.</p>
+  </ng-template>
+
+</div>
