@@ -3,8 +3,9 @@ import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
-  selector: 'app-signup',
-  templateUrl: './signup.component.html'
+    selector: 'app-signup',
+    templateUrl: './signup.component.html',
+    standalone: false
 })
 export class SignupComponent {
   name = '';

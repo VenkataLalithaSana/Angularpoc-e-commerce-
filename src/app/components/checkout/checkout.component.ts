@@ -6,8 +6,9 @@ import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
 
 @Component({
-  selector: 'app-checkout',
-  templateUrl: './checkout.component.html',
+    selector: 'app-checkout',
+    templateUrl: './checkout.component.html',
+    standalone: false
 })
 export class CheckoutComponent implements OnInit {
   checkoutForm!: FormGroup;

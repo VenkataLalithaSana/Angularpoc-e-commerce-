@@ -3,9 +3,10 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-selectlanguage',
-  templateUrl: './selectlanguage.component.html',
-  styleUrls: ['./selectlanguage.component.css']
+    selector: 'app-selectlanguage',
+    templateUrl: './selectlanguage.component.html',
+    styleUrls: ['./selectlanguage.component.css'],
+    standalone: false
 })
 export class SelectlanguageComponent {
   languages = [

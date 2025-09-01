@@ -18,9 +18,10 @@ interface Address {
 }
 
 @Component({
-  selector: 'app-saved-address',
-  templateUrl: './saved-address.component.html',
-  styleUrls: ['./saved-address.component.css']
+    selector: 'app-saved-address',
+    templateUrl: './saved-address.component.html',
+    styleUrls: ['./saved-address.component.css'],
+    standalone: false
 })
 export class SavedAddressComponent implements OnInit, AfterViewInit, OnDestroy {
 

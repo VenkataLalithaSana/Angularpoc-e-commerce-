@@ -5,9 +5,10 @@ import { CartService } from 'src/app/services/cart.service';
 import Swal from 'sweetalert2';  // <-- Import SweetAlert2
 
 @Component({
-  selector: 'app-product-detail',
-  templateUrl: './product-detail.component.html',
-  styleUrls: ['./product-detail.component.css'],
+    selector: 'app-product-detail',
+    templateUrl: './product-detail.component.html',
+    styleUrls: ['./product-detail.component.css'],
+    standalone: false
 })
 export class ProductDetailComponent implements OnInit {
   product: any;

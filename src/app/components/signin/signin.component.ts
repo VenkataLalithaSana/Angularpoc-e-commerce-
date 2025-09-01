@@ -3,8 +3,9 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
-  selector: 'app-signin',
-  templateUrl: './signin.component.html'
+    selector: 'app-signin',
+    templateUrl: './signin.component.html',
+    standalone: false
 })
 export class SigninComponent {
   email = '';
